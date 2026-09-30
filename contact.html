@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تواصل معنا - متجر ميداليات الفوم</title>
+    <!-- ربط ملف التنسيق الرئيسي الموحد لجميع الصفحات -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Embedded Style Sheet لتلبية شرط الواجب (Task 11) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff5f8;
+            color: #333;
+            margin: 0;
+        } 
+        .contact-box {
+            background: #ffffff;
+            border: 2px dashed #f48fb1;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .insta-btn {
+            display: inline-block;
+            background-color: #e1306c;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* حاوية لتوسيط الصورة والتحكم بحجمها الكلي */
+        .banner-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* تحكم كامل بعرض وطول الصورة العرضية */
+        .outside-banner-img {
+            width: 100%;        /* تحكم بعرض الصورة نسبياً (مثلاً 70% أو 80% أو 500px) */
+            max-width: 1000px;  /* أقصى عرض ممكن أن تصل له الصورة */
+            height: 600px;     /* ارتفاع الصورة (يمكنك زيادته أو إنقاصه حسب رغبتك) */
+            object-fit: cover; /* لضمان عدم تشوه محتوى الصورة عند تغيير المقاسات */
+            border-radius: 12px;
+            border: 2px solid #f8bbd0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background-color: #ffe6eb; padding: 20px; text-align: center;">
+        <div class="animated-logo">✨ Foamy medal ✨</div>
+        <nav style="margin-top: 15px;">
+            <a href="index.html">الرئيسية</a> |
+            <a href="about.html">من نحن</a> |
+            <a href="products.html">المنتجات</a> |
+            <a href="prices.html">الأسعار</a> |
+            <a href="custom.html">طلب خاص</a> |
+            <a href="feedback.html">آراء العملاء</a> |
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+    </header>
+
+    <div style="padding: 20px; max-width: 800px; margin: auto;">
+        <h1>تواصل معنا للطلب والاستفسار</h1>
+        
+        <!-- إطار تواصل معنا -->
+        <div class="contact-box">
+            <h2>صفحتنا على إنستغرام</h2>
+            <p>يمكنكم متابعتنا وطلب تصاميمكم الخاصة مباشرة عبر حسابنا:</p>
+            <a href="https://www.instagram.com/foamy_medal?igsh=ZzloZTk2c3Z1ZnZr&igsi=ZzloZTk2c3Z1ZnZr" target="_blank" class="insta-btn">Instagram 📸</a>
+        </div>
+
+        <!-- الصورة العرضية في الأسفل مع التحكم بحجمها -->
+        <div class="banner-container">
+            <img src="css/images/profail.jpg" alt="بانر تواصل معنا" class="outside-banner-img">
+        </div>
+    </div>
+
+</body>
+</html>

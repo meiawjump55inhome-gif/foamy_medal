@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>آراء العملاء - متجر ميداليات الفوم</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* تنسيق عام للصفحة ليحتوي العناصر بجانب بعضها */
+        .feedback-page-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* أعمدة الصور الجانبية على الأطراف */
+        .side-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 180px; /* عرض أصغر للصور */
+            flex-shrink: 0;
+        }
+
+        /* تنسيق الصور الطولية الصغيرة */
+        .feedback-img {
+            width: 100%;
+            height: 280px;     /* طول أصغر وأنسب للأطراف */
+            object-fit: cover; /* لضمان عدم تشوه الصورة */
+            border-radius: 10px;
+            border: 2px solid #f8bbd0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        /* قسم المحتوى الرئيسي في المنتصف (التقييمات والنموذج) */
+        .main-content {
+            flex-grow: 1;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* استجابة الشاشات الصغيرة (تتطابق مع الجوالات لتنزل الصور للأسفل إن لم يتسع الشاشة) */
+        @media (max-width: 900px) {
+            .feedback-page-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+            .side-gallery {
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+            }
+            .feedback-img {
+                width: 130px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="animated-logo">✨ Foamy medal✨</div>
+        <nav style="margin-top: 15px;">
+            <a href="index.html">الرئيسية</a> |
+            <a href="about.html">من نحن</a> |
+            <a href="products.html">المنتجات</a> |
+            <a href="prices.html">الأسعار</a> |
+            <a href="custom.html">طلب خاص</a> |
+            <a href="feedback.html">آراء العملاء</a> |
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 style="text-align: center; color: #c2185b; margin-bottom: 25px;">آراء وانطباعات العملاء</h1>
+
+        <!-- هيكل الصفحة: صور باليمين، محتوى بالوسط، صور باليسار -->
+        <div class="feedback-page-layout">
+
+            <!-- الصور الجانبية اليمين -->
+            <div class="side-gallery">
+                <img src="css/images/feed.jpg" alt="رأي العملاء 1" class="feedback-img">
+                <img src="css/images/feed2.jpg" alt="رأي العملاء 2" class="feedback-img">
+            </div>
+
+            <!-- المحتوى الرئيسي (التقييمات والنموذج في المنتصف) -->
+            <div class="main-content">
+                
+                <!-- قائمة التقييمات والآراء النصية -->
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+                    
+                    <div style="background: white; border: 1px solid #f8bbd0; padding: 18px; border-radius: 10px; border-right: 5px solid #c2185b;">
+                        <div style="color: #ffb300; font-size: 18px; margin-bottom: 5px;">⭐⭐⭐⭐⭐</div>
+                        <p style="color: #444; margin: 5px 0;">" 🤍🤍شكرا كثير عنجد نفس الي طلبتهم"</p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #f8bbd0; padding: 18px; border-radius: 10px; border-right: 5px solid #c2185b;">
+                        <div style="color: #ffb300; font-size: 18px; margin-bottom: 5px;">⭐⭐⭐⭐⭐</div>
+                        <p style="color: #444; margin: 5px 0;">"👌❤️❤️طلبت ميدالية البطة الكيوت، وصلتني بتغليف أنيق"</p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #f8bbd0; padding: 18px; border-radius: 10px; border-right: 5px solid #c2185b;">
+                        <div style="color: #ffb300; font-size: 18px; margin-bottom: 5px;">⭐⭐⭐⭐⭐</div>
+                        <p style="color: #444; margin: 5px 0;">"كيووووووووووووت💕💕"</p>
+                    </div>
+
+                </div>
+
+                <!-- نموذج إضافة رأي -->
+                <div style="background: #ffe6eb; padding: 20px; border-radius: 12px; text-align: center;">
+                    <h3 style="color: #c2185b; margin-bottom: 10px;">إضافة رأي جديد</h3>
+                    <form style="display: flex; flex-direction: column; gap: 10px; text-align: right;">
+                        <label style="color: #555; font-size: 14px;">الاسم:</label>
+                        <input type="text" placeholder="اكتبي اسمكِ هنا" style="padding: 8px; border: 1px solid #f8bbd0; border-radius: 5px;">
+
+                        <label style="color: #555; font-size: 14px;">رأيك بالمنتج:</label>
+                        <textarea rows="3" placeholder="شاركينا رأيكِ بميداليات الفوم..." style="padding: 8px; border: 1px solid #f8bbd0; border-radius: 5px;"></textarea>
+
+                        <button type="button" style="background-color: #c2185b; color: white; border: none; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 5px;">إرسال التقييم ✨</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- الصورة الثالثة على الجانب الآخر لتتوزع الصور على الأطراف -->
+            <div class="side-gallery">
+                
+            <img src="css/images/feed3.jpg" alt="رأي العملاء 3" class="feedback-img">
+            <img src="css/images/feed4.jpg" alt="رأي العملاء 4" class="feedback-img">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

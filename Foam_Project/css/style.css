@@ -1,0 +1,573 @@
+body {
+    
+    font-family: Arial, sans-serif;
+    background-color: #fff5f8;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+header {
+    background-color: #ffe6eb;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f8bbd0;
+}
+
+/* الشعار المتحرك - Task 1 */
+.animated-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #c2185b;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); color: #ad1457; }
+    100% { transform: scale(1); }
+}
+
+/* التنسيقات والـ Pseudo-classes - Task 9 */
+nav a:link { color: #896277; text-decoration: none; margin: 0 10px; font-weight: bold; }
+nav a:visited { color: #e394b6; }
+nav a:hover { color: #ff4081; text-decoration: underline; }
+nav a:active { color: #f3b8d0; }
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td { border: 1px solid #f8bbd0; }
+th, td { padding: 10px; text-align: center; }
+th { background-color: #f48fb1; color: white; }
+
+.img-box {
+    width: 200px;
+    border-radius: 8px;
+}
+/* تنسيق خطوات طلب التصميم */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 650px;
+    margin: 25px auto;
+}
+
+.step-card {
+    background: #ffffff;
+    border: 1px solid #f8bbd0;
+    border-right: 6px solid #c2185b;
+    padding: 18px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.step-number {
+    background-color: #ffe6eb;
+    color: #c2185b;
+    font-weight: bold;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-details h3 {
+    margin: 0 0 5px 0;
+    color: #880e4f;
+    font-size: 17px;
+}
+
+.step-details p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* ========================================================
+   توزيع الصور بشكل عشوائي مع حركة طفو وتفاعل بالماوس
+   ======================================================== */
+
+.random-floating-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 300px; /* يضمن إعطاء مساحة كافية للصور للظهور */
+    margin: 20px 0;
+}
+
+
+/* العنصر العائم الأساسي */
+.random-badge {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 5;
+    /* حركة طفو عائمة مستمرة */
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.random-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(194, 24, 91, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* حركة الماوس: إيقاف الطفو وتكبير الصورة مع دوران */
+.random-badge:hover {
+    animation-play-state: paused; /* إيقاف الطفو عند الوقوف بالماوس */
+    z-index: 20;
+}
+
+.random-badge:hover img {
+    transform: scale(1.4) rotate(15deg);
+    box-shadow: 0 8px 22px rgba(194, 24, 91, 0.4);
+    border-color: #f8bbd0;
+}
+
+/* التسمية التوضيحية عند التمرير */
+.random-badge .badge-title {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #c2185b;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.random-badge:hover .badge-title {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* أماكن ومواقع موزعة بشكل عشوائي مع أوقات حركة مختلفة */
+.pos-1 {
+    top: 10%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.pos-2 {
+    top: 20%;
+    right: 12%;
+    animation-delay: 1s;
+}
+
+.pos-3 {
+    bottom: 15%;
+    left: 18%;
+    animation-delay: 2s;
+}
+
+.pos-4 {
+    bottom: 25%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+.pos-5 {
+    top: 30%;
+    left: 7%;
+    animation-delay: 0s;
+    .pos-1 {
+    top: 10%;
+    left: 8%;
+    animation-delay: 0s;
+}
+.pos-6 {
+    top: 40%;
+    left: 10%;
+    animation-delay: 0s;
+}
+}
+
+/* كود حركة الطفو العفوية (Up & Down) */
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(6deg);
+    }
+}
+/* ========================================================
+   تنسيق صور زوايا الشاشة والنوافذ المنبثقة
+   ======================================================== */
+
+/* تثبيت كروت الصور في زوايا الشاشة */
+.corner-badge {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(194, 24, 91, 0.25);
+    z-index: 999;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.corner-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.corner-badge:hover {
+    transform: scale(1.15) rotate(6deg);
+}
+
+/* مواقع الزوايا الأربع */
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+/* إخفاء النوافذ المنبثقة تلقائياً */
+.image-modal {
+    display: none; /* هذا السطر يمنع ظهورها المباشر داخل الصفحة */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* إظهار النافذة عند الضغط على الصورة */
+.image-modal:target {
+    display: flex;
+}
+
+.image-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 12px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 38px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: #f48fb1;
+}
+
+/* تنسيق صور المعرض */
+.img-box {
+    width: 140px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #f8bbd0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.img-box:hover {
+    transform: scale(1.08);
+}
+/* كلاس خاص بحجم الصور في صفحة المنتجات فقط */
+.product-img {
+    width: 240px;   /* حددي الحجم الذي تريدينه لصفحة المنتجات هنا */
+    height: 440px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #f8bbd0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.product-img:hover {
+    transform: scale(1.05);
+}
+.animated-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #c2185b;
+    display: inline-block;
+    animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-6px); }
+}
+/* تنسيق الصورة العرضية أعلى الصفحة */
+.banner-image {
+    width: 100%;             /* تجعل الصورة تأخذ عرض الصندوق بالكامل */
+    height: 250px;           /* تحديد ارتفاع مناسب للغلاف العرضي */
+    object-fit: cover;       /* أهم خاصية: تمنع تمطط الصورة أو تشوهها وتضبط أبعادها تلقائياً */
+    border-radius: 12px;     /* تدوير الزوايا لتطابق تصميم الصندوق */
+    border: 1px solid #f8bbd0; /* إطار وردي ناعم */
+    margin-bottom: 20px;     /* مسافة تفصل الصورة عن صندوق النص */
+    display: block;          /* يضمن ظهور الصورة كعنصر مستقل في الأعلى */
+}
+/* تنسيق صورة زر الطلب في صفحة الأسعار */
+.order-image-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.order-image-link img {
+    max-width: 100%;
+    width: 200px; /* حجم الصورة */
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #f48fb1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* تأثير تحريك الماوس فوق الصورة */
+.order-image-link img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(225, 48, 108, 0.2);
+}
+/* ==========================================
+   تنسيقات صفحة خطوات الطلب الخاص (custom.html)
+   ========================================== */
+
+/* العنوان الرئيسي والمقدمة */
+.page-title {
+    text-align: center;
+    color: #c2185b;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* حاوية البطاقات */
+.custom-steps-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* بطاقة الخطوة الواحدة */
+.step-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f8bbd0;
+}
+
+/* رقم الخطوة (الدائرة) */
+.step-number {
+    background-color: #f48fb1;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* الصورة المربعة الصغيرة */
+.step-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* تحافظ على المربع بدون تشويه */
+    border-radius: 8px;
+    border: 2px solid #f8bbd0;
+    flex-shrink: 0;
+}
+
+/* النصوص داخل البطاقة */
+.step-details {
+    flex-grow: 1;
+}
+
+.step-details h3 {
+    margin: 0 0 5px 0;
+    color: #c2185b;
+    font-size: 18px;
+}
+
+.step-details p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* زر التواصل أسفل الصفحة */
+.cta-button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* ==========================================
+   تنسيقات صفحة خطوات الطلب الخاص (custom.html)
+   ========================================== */
+
+/* العنوان الرئيسي والمقدمة */
+.page-title {
+    text-align: center;
+    color: #c2185b;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* حاوية البطاقات */
+.custom-steps-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* بطاقة الخطوة الواحدة (لترتيب العناصر أفقياً بجانب بعضها) */
+.step-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f8bbd0;
+}
+
+/* رقم الخطوة (الدائرة الوردية) */
+.step-number {
+    background-color: #f48fb1;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* الصورة المربعة الصغيرة بجانب الخطوة */
+.step-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* تحافظ على المربع بدون تشويه الصورة */
+    border-radius: 8px;
+    border: 2px solid #f8bbd0;
+    flex-shrink: 0;
+}
+
+/* تفاصيل النصوص داخل البطاقة */
+.step-details {
+    flex-grow: 1;
+}
+
+.step-details h3 {
+    margin: 0 0 5px 0;
+    color: #c2185b;
+    font-size: 18px;
+}
+
+.step-details p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* زر التواصل أسفل الصفحة */
+.cta-button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* تغيير لون زر الإنستغرام عند النقر عليه */
+.insta-btn:active {
+    background-color: #833ab4 !important;
+    transform: scale(0.95);
+}
+/* 1. التنسيق الأساسي لروابط القائمة */
+nav a {
+    color: #c2185b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* 2. Pseudo-class عند تمرير الماوس فوق الرابط (Hover) */
+nav a:hover {
+    color: #e1306c;
+    background-color: #ffe6eb;
+}
+
+/* 3. Pseudo-class عند النقر والضغط بالماوس (Active) */
+nav a:active {
+    color: #833ab4 !important; /* لون بنفسجي لحظة الضغط */
+    transform: scale(0.95);
+}
+
+/* 4. كلاس الصفحة الحالية المفتوحة (Active Page) */
+nav a.current {
+    background-color: #f48fb1;
+    color: #ffffff !important;
+}
